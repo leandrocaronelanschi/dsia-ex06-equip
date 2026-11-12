@@ -1,0 +1,30 @@
+{
+  "versao": "grafo",
+  "inicio": "2026-11-12T10:45:42.114960+00:00",
+  "entrada_sha256": "08416469935a410e2cc97f774a160d6d0e9b6e1bdcb03e47e35ccca6be4fba3c",
+  "modelo": null,
+  "seed": 42,
+  "chamadas_tentadas": 0,
+  "chamadas_concluidas": 0,
+  "primeira_falha": "ConfiguracaoAusente: definir OPENAI_API_KEY e MODEL localmente",
+  "eventos": [
+    {
+      "tipo": "thread",
+      "segundos": 7.275899997694069e-05,
+      "id": "4e1bc637-604f-4e97-9442-3f12d8ad80fd"
+    },
+    {
+      "tipo": "falha",
+      "segundos": 0.005505922999873292,
+      "motivo": "ConfiguracaoAusente: definir OPENAI_API_KEY e MODEL localmente"
+    },
+    {
+      "tipo": "falha",
+      "segundos": 0.005919622999954299,
+      "motivo": "ExecucaoInterrompida:RuntimeError"
+    }
+  ],
+  "saida": null,
+  "status": "bloqueado",
+  "tempo_total_s": 0.005921335000039107
+}

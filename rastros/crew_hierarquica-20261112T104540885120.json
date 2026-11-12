@@ -1,0 +1,25 @@
+{
+  "versao": "crew_hierarquica",
+  "inicio": "2026-11-12T10:45:40.885089+00:00",
+  "entrada_sha256": "08416469935a410e2cc97f774a160d6d0e9b6e1bdcb03e47e35ccca6be4fba3c",
+  "modelo": null,
+  "seed": 42,
+  "chamadas_tentadas": 0,
+  "chamadas_concluidas": 0,
+  "primeira_falha": "ConfiguracaoAusente: definir OPENAI_API_KEY e MODEL localmente",
+  "eventos": [
+    {
+      "tipo": "falha",
+      "segundos": 6.771100015612319e-05,
+      "motivo": "ConfiguracaoAusente: definir OPENAI_API_KEY e MODEL localmente"
+    },
+    {
+      "tipo": "falha",
+      "segundos": 7.159699998737779e-05,
+      "motivo": "ExecucaoInterrompida:RuntimeError"
+    }
+  ],
+  "saida": null,
+  "status": "bloqueado",
+  "tempo_total_s": 7.266900001923204e-05
+}

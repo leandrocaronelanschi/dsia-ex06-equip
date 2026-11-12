@@ -1,0 +1,13 @@
+{
+  "origem": "Fixture sintética criada para testes do harness. NÃO é o colheita-mini oficial nem evidência do exercício.",
+  "problema": "Ao calcular pagamento de uma pesagem, peso negativo gera um valor negativo. Propor validação sem alterar o caso válido.",
+  "arquivos": {
+    "pagamento.py": "def calcular_pagamento(peso, preco):\n    return peso * preco\n"
+  },
+  "criterios": [
+    "Peso negativo deve gerar ValueError",
+    "Peso zero retorna zero",
+    "Peso 10 e preço 2 retornam 20",
+    "Preço negativo deve gerar ValueError"
+  ]
+}

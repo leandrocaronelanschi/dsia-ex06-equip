@@ -1,0 +1,22 @@
+test_both_crews_construct (test_fluxos.Tests.test_both_crews_construct) ... /workspace/scratch/2e1ed5808f3e/.venv/lib/python3.12/site-packages/crewai/agent/core.py:455: DeprecationWarning: function_calling_llm is deprecated and will be removed in a future release.
+  if self.function_calling_llm and not isinstance(
+/workspace/scratch/2e1ed5808f3e/.venv/lib/python3.12/site-packages/crewai/agent/core.py:463: DeprecationWarning: deprecated
+  if self.allow_code_execution:
+/workspace/scratch/2e1ed5808f3e/.venv/lib/python3.12/site-packages/crewai/agent/core.py:474: DeprecationWarning: deprecated
+  if self.reasoning and self.planning_config is None:
+/workspace/scratch/2e1ed5808f3e/.venv/lib/python3.12/site-packages/pydantic/main.py:250: UserWarning: A function callback cannot be saved in a checkpoint; it is dropped and will not run after a restore. Use a module-level named function instead.
+  validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+/workspace/scratch/2e1ed5808f3e/.venv/lib/python3.12/site-packages/crewai/crew.py:661: DeprecationWarning: function_calling_llm is deprecated and will be removed in a future release.
+  if self.function_calling_llm and not isinstance(self.function_calling_llm, LLM):
+ok
+test_conditional_return (test_fluxos.Tests.test_conditional_return) ... ok
+test_human_rejection (test_fluxos.Tests.test_human_rejection) ... ok
+test_input_hash_equal (test_fluxos.Tests.test_input_hash_equal) ... ok
+test_interrupt_and_resume_approval (test_fluxos.Tests.test_interrupt_and_resume_approval) ... ok
+test_invalid_verdict_fails_closed (test_fluxos.Tests.test_invalid_verdict_fails_closed) ... ok
+test_no_identity_fails_closed (test_fluxos.Tests.test_no_identity_fails_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.036s
+
+OK
