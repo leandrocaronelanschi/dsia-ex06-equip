@@ -5,7 +5,8 @@ Não há repositório público publicado nem execuções com modelo. As três te
 registradas foram bloqueadas por falta de configuração. Zero chamadas ao provedor.
 Os sete testes locais usam doubles, sem inferência. Não são resultados empíricos.
 
-## Problema e vínculo com o curso
+## Problema e vínculo com o curso.
+
 O fluxo noturno de Davi prevê triagem, correção e revisão das issues do Colheita.
 Marina precisa saber quem decide e impedir que a equipe faça merge com credenciais
 que também acessam produção. Esta implementação organiza analista, engenheiro e
@@ -19,6 +20,7 @@ oficial do curso. Antes da coleta, substitua-o por um recorte real do colheita-m
 ou de seu repositório de pesquisa. O script preparar_entrada.py ajuda nessa tarefa.
 
 ## Estrutura e responsabilidades
+
 - crew/config: três papéis específicos e tarefas com saídas verificáveis.
 - crew/main.py: processos sequencial e hierárquico. O segundo acrescenta um gerente
   de coordenação aos três especialistas; suas chamadas também entram na medição.
@@ -28,6 +30,7 @@ ou de seu repositório de pesquisa. O script preparar_entrada.py ajuda nessa tar
 - rastros: testes locais e tentativas bloqueadas, com status explícito.
 
 ## Ambiente e instalação
+
 Python 3.12.14. CrewAI 1.15.40, LangGraph 1.2.20 e langchain-openai 1.7.4.
 As versões completas instaladas estão em requirements.lock.txt.
 
@@ -38,6 +41,7 @@ python -m venv .venv
 python -m pip install -r requirements.lock.txt
 cp .env.example .env
 ```
+
 No Windows, pode copiar o arquivo pelo explorador. Edite .env localmente:
 OPENAI_API_KEY é sua chave; MODEL deve ser um identificador de modelo disponível
 na conta; SEED deve ser 42. Nenhuma chave é necessária para os testes unitários.
@@ -47,6 +51,7 @@ seed e max_tokens. O código não troca de modelo nem remove parâmetros silenci
 A assinatura do ChatGPT não configura automaticamente uma chave de API neste projeto.
 
 ## Preparar a entrada real
+
 Escolha uma issue pequena e pública e seu commit de origem. Salve a descrição num
 arquivo de texto e selecione o código e testes pertinentes. Não inclua .env, dados
 pessoais ou registros reais da cooperativa.
@@ -54,17 +59,20 @@ pessoais ou registros reais da cooperativa.
 ```bash
 python preparar_entrada.py --repo ../colheita-mini --issue issue.txt --arquivo src/pagamento.py --arquivo tests/test_pagamento.py --criterio "Peso negativo gera ValueError" --saida entradas/caso.json
 ```
+
 Os caminhos acima são exemplos: substitua pelos arquivos existentes. Acrescente ao
 JSON a URL e o commit efetivos. As três versões devem usar exatamente esse mesmo
 arquivo, sem incorporar a saída de outra versão. O SHA-256 canônico fica no rastro.
 
 ## Executar e guardar as três versões
+
 ```bash
 python -m crew.main sequencial --entrada entradas/caso.json
 python -m crew.main hierarquica --entrada entradas/caso.json
 python -m grafo.main --entrada entradas/caso.json
 python comparar.py
 ```
+
 Não há ferramenta de shell, aplicação de patch ou acesso ao GitHub no agente.
 A saída é um diff proposto e um parecer. Testes propostos não são testes executados:
 antes de aceitar a correção, uma pessoa aplica o diff em checkout descartável,
@@ -79,6 +87,7 @@ substitua-o por armazenamento persistente e proteja a API de retomada com autent
 O nome digitado no terminal é autodeclaração, não autenticação de produção.
 
 ## Protocolo de medição
+
 Mesma entrada, modelo, temperatura, seed, teto de 40 chamadas, timeout de 60 s por
 requisição e limite de 2.500 tokens de saída por chamada. Sem cache, memória de
 conversas anteriores ou retries de transporte. A coordenação hierárquica pode gerar
@@ -95,21 +104,25 @@ Não confunda ausência de exceção com correção da issue. Uma execução por
 não permite generalizações sobre eficiência ou qualidade dos frameworks.
 
 ## Verificação e entrega
+
 ```bash
 python -m unittest discover -s tests -v
 python verificar_publicacao.py
 ```
+
 Sete testes passaram na preparação. Após a coleta, registre primeiro erro semântico,
 saídas, tempos e contagens; mantenha tentativas malsucedidas. Atualize COMPARACAO.md.
 O scanner é auxiliar e não substitui revisão manual de segredos nos rastros.
 
 Somente quando o material real e a coleta estiverem completos:
+
 ```bash
 git init -b main
 git add .
 git commit -m "Implementa equipe e comparação do exercício 6"
 gh repo create dsia-ex06-equipe --public --source=. --remote=origin --push
 ```
+
 O gh precisa estar autenticado na sua conta. Abra o endereço retornado em janela
 anônima e confira main, arquivos e rastros. Então cole a URL na atividade 3533.
 Não envie o link antes dessa revisão: o enunciado permite um envio sem reabertura.
